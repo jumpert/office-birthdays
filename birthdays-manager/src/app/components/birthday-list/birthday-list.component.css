@@ -1,0 +1,11 @@
+/* src/app/components/birthday-list/birthday-list.component.css */
+
+/* Podrías eliminar muchos estilos si ya usas clases de Bootstrap */
+.birthday-list-container {
+  /* Si ya usas .container en HTML, no hace falta mucho aquí */
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* etc. */

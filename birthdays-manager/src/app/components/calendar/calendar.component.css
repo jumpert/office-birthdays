@@ -1,0 +1,17 @@
+/* calendar.component.css */
+.calendar-container {
+  /* Ajustes si deseas, aunque .container y mt-4 son de Bootstrap */
+}
+
+.card {
+  border: 1px solid #ccc;
+}
+
+.card-header {
+  background-color: #ebf3fa; /* Color suave para el encabezado */
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+}

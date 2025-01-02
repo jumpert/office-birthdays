@@ -1,0 +1,35 @@
+<!-- 
+  Muestra los próximos cumpleaños en tarjetas (cards) de Bootstrap,
+  distribuidos en 1 columna para pantallas pequeñas y 2 columnas en pantallas >=768px.
+-->
+<div class="container my-4">
+  <h2 class="mb-3 text-center">Próximos Cumpleaños</h2>
+
+  <div class="row row-cols-1 row-cols-md-2 g-3">
+    <div class="col" *ngFor="let friend of upcomingBirthdays">
+      <!-- 
+        Card: usando shadow-sm para añadir una leve sombra.
+        (Opcional) Aplicar estilos condicionales: 
+        [ngClass]="{'bg-warning': isBirthdaySoon(friend.birthday, 7)}"
+        para resaltar si faltan <=7 días.
+      -->
+      <div class="card h-100 shadow-sm"
+           [ngClass]="{'bg-warning': isBirthdaySoon(friend.birthday, 7)}">
+        <div class="card-body">
+          <!-- Nombre del amigo, en tamaño grande y color primario -->
+          <h4 class="card-title fs-4 mb-2 text-primary">
+            {{ friend.name }}
+          </h4>
+          <!-- Fecha de cumpleaños en formato largo, en español -->
+          <p class="card-text fs-6 text-muted">
+            <!-- 
+              Si NO configuraste LOCALE_ID='es' a nivel global, 
+              usa: date:'longDate':'es' 
+            -->
+            {{ friend.birthday | date:"dd-MM-yyyy"  }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

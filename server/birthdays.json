@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "Juan Perez",
+    "birthday": "1990-01-04"
+  },
+  {
+    "id": 2,
+    "name": "Maria Lopez",
+    "birthday": "1992-04-10"
+  },
+  {
+    "id": 3,
+    "name": "Carlos Sanchez",
+    "birthday": "1988-12-05"
+  },
+  {
+    "id": 4,
+    "name": "Pedro Rodriguez",
+    "birthday": "1991-06-20"
+  },
+  {
+    "id": 5,
+    "name": "Ana Martinez",
+    "birthday": "1993-09-25"
+  },
+  {
+    "id": 6,
+    "name": "Jose Gonzalez",
+    "birthday": "1989-11-30"
+  },
+  {
+    "id": 7,
+    "name": "Laura Ramirez",
+    "birthday": "1994-02-01"
+  },
+  {
+    "id": 8,
+    "name": "Sofia Torres",
+    "birthday": "1995-07-10"
+  },
+  {
+    "id": 9,
+    "name": "Jorge Jimenez",
+    "birthday": "1996-10-15"
+  },
+  {
+    "id": 10,
+    "name": "Rosa Perez",
+    "birthday": "1997-03-20"
+  }
+]

@@ -1,0 +1,47 @@
+<!-- add-birthday.component.html -->
+<!-- Modal nativo de Bootstrap con id="addBirthdayModal" -->
+<div class="modal fade" id="addBirthdayModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Agregar Cumpleaños</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Form para agregar un cumpleaños -->
+          <form (ngSubmit)="addFriend()">
+            <div class="mb-3">
+              <label for="friendName" class="form-label">Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="newFriendName"
+                name="friendName"
+                id="friendName" />
+            </div>
+            <div class="mb-3">
+              <label for="friendBirthday" class="form-label">Fecha de nacimiento</label>
+              <input
+                type="date"
+                class="form-control"
+                [(ngModel)]="newFriendBirthday"
+                name="friendBirthday"
+                id="friendBirthday" />
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Cerrar
+              </button>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                data-bs-dismiss="modal">
+                Agregar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

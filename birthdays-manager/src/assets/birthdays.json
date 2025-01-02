@@ -1,0 +1,18 @@
+[
+    {
+      "id": 1,
+      "name": "Juan Perez",
+      "birthday": "1990-01-15"
+    },
+    {
+      "id": 2,
+      "name": "Maria Lopez",
+      "birthday": "1992-04-10"
+    },
+    {
+      "id": 3,
+      "name": "Carlos Sanchez",
+      "birthday": "1988-12-05"
+    }
+  ]
+  
