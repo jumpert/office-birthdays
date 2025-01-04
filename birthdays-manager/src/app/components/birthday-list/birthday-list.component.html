@@ -1,32 +1,75 @@
-<!-- 
-  Muestra los próximos cumpleaños en tarjetas (cards) de Bootstrap,
-  distribuidos en 1 columna para pantallas pequeñas y 2 columnas en pantallas >=768px.
--->
+<!-- src/app/components/birthday-list/birthday-list.component.html -->
+
 <div class="container my-4">
+  <!-- Bloque para CUMPLEAÑOS DE HOY (si hay alguno) -->
+  <div class="mb-4" *ngIf="todaysBirthdays.length > 0">
+    <h3 class="text-center text-danger">
+      ¡Hoy es el cumpleaños de:
+    </h3>
+  
+    <!-- Contenedor de tarjetas HOY -->
+    <!-- Añadimos clases de Bootstrap para centrar los ítems -->
+    <div class="row row-cols-1 row-cols-md-2 g-3 d-flex justify-content-center">
+      <div class="col d-flex justify-content-center" *ngFor="let friend of todaysBirthdays">
+        <div 
+          class="card h-100 birthday-card text-center position-relative"
+          [ngClass]="{'birthday-today': true}"
+        >
+          <div class="card-body">
+            <h4 class="card-title fs-2 mb-2 text-primary">
+              {{ friend.name }}
+            </h4>
+            <p class="card-text fs-6 text-muted">
+              {{ friend.birthday | date:'dd-MM-yyyy' }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- cumpleaños proxima semana -->
+  <h2 class="mb-3 text-center">Cumpleaños Próxima Semana</h2>
+
+  <!-- Bloque para CUMPLEAÑOS PRÓXIMOS (no hoy) -->
+  <div class="row row-cols-1 row-cols-md-2 g-3">
+    <div class="col" *ngFor="let friend of nextWeekBirthdays">
+      <div 
+        class="card h-100 birthday-card"
+        [ngClass]="{
+          'birthday-soon': isBirthdaySoon(friend.birthday, 7)
+        }"
+      >
+        <div class="card-body">
+          <h4 class="card-title
+          fs-4 mb-2 text-primary">
+            {{ friend.name }}
+          </h4>
+          <p class="card-text fs-6 text-muted">
+            {{ friend.birthday | date:'dd-MM-yyyy' }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <h2 class="mb-3 text-center">Próximos Cumpleaños</h2>
 
+  <!-- Bloque para CUMPLEAÑOS PRÓXIMOS (no hoy) -->
   <div class="row row-cols-1 row-cols-md-2 g-3">
     <div class="col" *ngFor="let friend of upcomingBirthdays">
-      <!-- 
-        Card: usando shadow-sm para añadir una leve sombra.
-        (Opcional) Aplicar estilos condicionales: 
-        [ngClass]="{'bg-warning': isBirthdaySoon(friend.birthday, 7)}"
-        para resaltar si faltan <=7 días.
-      -->
-      <div class="card h-100 shadow-sm"
-           [ngClass]="{'bg-success': isBirthdaySoon(friend.birthday, 7)}">
+      <div 
+        class="card h-100 birthday-card"
+        [ngClass]="{
+          'birthday-soon': isBirthdaySoon(friend.birthday, 7)
+        }"
+      >
         <div class="card-body">
-          <!-- Nombre del amigo, en tamaño grande y color primario -->
           <h4 class="card-title fs-4 mb-2 text-primary">
             {{ friend.name }}
           </h4>
-          <!-- Fecha de cumpleaños en formato largo, en español -->
           <p class="card-text fs-6 text-muted">
-            <!-- 
-              Si NO configuraste LOCALE_ID='es' a nivel global, 
-              usa: date:'longDate':'es' 
-            -->
-            {{ friend.birthday | date:"dd-MM-yyyy"  }}
+            {{ friend.birthday | date:'dd-MM-yyyy' }}
           </p>
         </div>
       </div>
