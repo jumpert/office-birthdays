@@ -45,14 +45,14 @@ export class BirthdayService {
   }
 
   // Eliminar => DELETE
-  deleteBirthday(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`).pipe(
-      tap(() => {
-        // Remover de la lista en memoria
-        this.birthdays = this.birthdays.filter(b => b.id !== id);
-      })
-    );
-  }
+  // deleteBirthday(id: number): Observable<any> {
+  //   return this.http.delete(`${this.apiUrl}/${id}`).pipe(
+  //     tap(() => {
+  //       // Remover de la lista en memoria
+  //       this.birthdays = this.birthdays.filter(b => b.id !== id);
+  //     })
+  //   );
+  // }
 
   // Obtener próximos cumpleaños (ej. 15 días) a partir de la lista en memoria
   getUpcomingBirthdays(daysRange: number = 15): Birthday[] {
@@ -103,6 +103,42 @@ export class BirthdayService {
     });
 
     return grouped;
+  }
+
+  updateBirthday(birthday: Birthday): Observable<Birthday> {
+    // Si tienes un backend, harías un PUT /api/birthdays/:id
+    // y al recibir la respuesta, actualizas this.birthdays en memoria
+    return new Observable(observer => {
+      // Llamada real (ejemplo):
+      this.http.put<Birthday>(`${this.apiUrl}/${birthday.id}`, birthday)
+        .subscribe({
+          next: updated => {
+            // Actualizar en memoria
+            const idx = this.birthdays.findIndex(b => b.id === updated.id);
+            if (idx !== -1) {
+              this.birthdays[idx] = updated;
+            }
+            observer.next(updated);
+            observer.complete();
+          },
+          error: (err) => observer.error(err)
+        });
+    });
+  }
+  
+  deleteBirthday(id: number): Observable<any> {
+    return new Observable(observer => {
+      // DELETE /api/birthdays/:id
+      this.http.delete(`${this.apiUrl}/${id}`).subscribe({
+        next: () => {
+          // Quitar de la lista en memoria
+          this.birthdays = this.birthdays.filter(b => b.id !== id);
+          observer.next({ message: 'Deleted' });
+          observer.complete();
+        },
+        error: (err) => observer.error(err)
+      });
+    });
   }
 
 }

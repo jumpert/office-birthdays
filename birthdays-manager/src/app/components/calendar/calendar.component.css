@@ -15,3 +15,65 @@
   font-weight: bold;
   font-size: 1.1rem;
 }
+
+.card-body {
+  padding: 0;
+}
+
+/* Ocultar el botón "Editar" hasta que el mouse esté sobre .birthday-item */
+.birthday-item {
+  position: relative;
+}
+
+/* Ocultar el botón por defecto */
+.birthday-item .edit-button {
+  display: none;        /* oculto */
+  position: absolute;   
+  top: 0.2rem;          /* ajústalo según tu preferencia */
+  right: 0.5rem;
+}
+
+/* Al hacer hover en el elemento .birthday-item, mostramos el botón */
+.birthday-item:hover .edit-button {
+  display: inline-block;
+}
+
+.list-group-item {
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+}
+
+/* Borde distintivo para el mes actual */
+.current-month {
+  border: 3px solid #28a745; /* Tono verde o el color que desees */
+  border-radius: 6px;        /* Pequeño redondeo de esquinas */
+}
+
+/* Header con gradiente verde */
+.gradient-header {
+  /* Gradiente horizontal (90deg), ajusta colores a tu gusto */
+  background: linear-gradient(
+    180deg,
+    #1c7efe 30%,
+    #081ec2 100%
+  );
+  /* Si quieres asegurar el texto en negro: */
+  color: #000;
+}
+
+/* Body con gradiente gris */
+.gradient-body {
+  background: linear-gradient(
+    190deg,
+    #f0f0f0 30%,
+    #cccccc 100%
+  );
+}
+
+/* Clase general para forzar el texto a negro, si es que Bootstrap 
+   aplica otra cosa */
+.text-black {
+  color: #dcdcdc !important;
+}
+

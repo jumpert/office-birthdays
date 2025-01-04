@@ -14,7 +14,7 @@
         para resaltar si faltan <=7 días.
       -->
       <div class="card h-100 shadow-sm"
-           [ngClass]="{'bg-warning': isBirthdaySoon(friend.birthday, 7)}">
+           [ngClass]="{'bg-success': isBirthdaySoon(friend.birthday, 7)}">
         <div class="card-body">
           <!-- Nombre del amigo, en tamaño grande y color primario -->
           <h4 class="card-title fs-4 mb-2 text-primary">
