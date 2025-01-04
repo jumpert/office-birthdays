@@ -118,7 +118,16 @@ export class BirthdayService {
       }
       grouped[monthIndex].push(b);
     });
-
+    
+    // Ordenar por día
+    for (const month in grouped) {
+      grouped[month].sort((a, b) => {
+        const dateA = new Date(a.birthday);
+        const dateB = new Date(b.birthday);
+        return dateA.getDate() - dateB.getDate();
+      }
+      );
+    }
     return grouped;
   }
 
